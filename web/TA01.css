@@ -13,3 +13,7 @@
 	font-size: 36px;
 	color: blue;
 }
+
+.hover-bold:hover{
+	font-weight: bold;
+}
