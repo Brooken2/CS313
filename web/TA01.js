@@ -1,5 +1,5 @@
 
-function clicked(){
+function clickMe(){
 
 	alert("You clicked me");
 
