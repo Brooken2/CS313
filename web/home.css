@@ -1,0 +1,24 @@
+/*
+	Comment
+*/
+
+.hover-bold:hover{
+	font-weight: bold;
+	color: red;
+}
+
+.color-1{
+	text-align: center;
+	color: brown;
+}
+
+.color-2{
+	text-align: left;
+	color: brown;
+	font-family: verdana;
+}
+
+p {
+	font-family: verdana;
+	font-size: 20px;
+}
