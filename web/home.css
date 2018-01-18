@@ -7,13 +7,25 @@
 	color: red;
 }
 
+
+.center-stuff{
+	text-align: center;
+}
+
 .color-1{
+	font-weight: bold;
 	text-align: center;
 	color: brown;
 }
 
 .color-2{
 	text-align: left;
+	color: brown;
+	font-family: verdana;
+}
+
+.color-3{
+	font-weight: bold;
 	color: brown;
 	font-family: verdana;
 }
