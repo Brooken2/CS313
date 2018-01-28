@@ -1,0 +1,36 @@
+body, html {
+    height: 100%;
+}
+
+.jumbotron h1{
+	color: #fffdd0;
+}
+
+.btn-info-text{
+	color: #fffdd0;
+}
+
+.color {
+	color: #fffdd0;
+}
+
+.bg { 
+    
+    background-image: url("http://www.eurotriade.com/wp-content/uploads/2013/12/Global-1.png");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+       
+
+
+h2 {
+	color: Black;
+	background-color: White;
+	text-align: center;
+}
+
+.center{
+	text-align:center;
+}
