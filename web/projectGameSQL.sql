@@ -28,10 +28,14 @@ INSERT INTO participant(username, password, display_name, email)
 		VALUES
 		('Brooken2', '220546Bn', 'Brooke Nelson', 'brookenelson220546@gmail.com');
 
+INSERT INTO participant(username, password, display_name, email)
+		VALUES
+		('John', 'doe', 'John Doe', 'johnnyDoe@gmail.com');
+
 INSERT INTO game(name) VALUES ('Rock, Paper, Sissors');
 
 INSERT INTO gameParticipants(participantId, gameId, totalGames, wins)
-VALUES (0, 0, 10, 5);
+VALUES (1, 1, 10, 5);
 		
 connections
 INSERT INTO gameParticipants(participantId, gameId, totalGames, wins)

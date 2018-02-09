@@ -26,10 +26,11 @@ $dbName = ltrim($dbopts["path"],'/');
 
 $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-foreach ($db->query('SELECT username, password FROM  participant') as $row)
+
+
+foreach ($db->query('SELECT display_name FROM  participant') as $row)
 {
-  echo 'user: ' . $row['username'];
-  echo ' password: ' . $row['password'];
+  echo 'Display Name: ' . $row['display_name'];
   echo '<br/>';
 }
 ?>
