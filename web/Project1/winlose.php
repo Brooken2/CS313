@@ -44,21 +44,17 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 		</form> 
   </div>
 
-<?php
-$stmt = $db->prepare('SELECT username FROM participant p JOIN gameparticipants gp ON p.id = gp.participantid JOIN game g ON gp.gameid = p.id WHERE p.id=:theid');
-$stmt->bindValue(':theid', $participantId, PDO::PARAM_INT);
-$stmt->execute();
-$username = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-
 <div class="row">
 	<div class="column center">
 	
 	<?php 
-		foreach ($username as $usern)
+		foreach ($db->query('SELECT totalGames FROM gameParticipants') as $row)
 		{
-  			$name = $usern["username"];
-  			echo "<li><p>$name</p></li>";
+  			echo '<h2> Total Games Played: ' . $row['totalGames'] . '</h2>';
+		}
+		foreach ($db->query('SELECT wins FROM gameParticipants') as $row)
+		{
+			echo '<h2> Total Wins: ' .  $row['wins'] . '</h2>';
 		}
 	?>
 </div>
