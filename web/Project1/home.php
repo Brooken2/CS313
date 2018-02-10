@@ -14,17 +14,22 @@
 <form action="gamerps.php">
 <div class="container">
   <div class="page-header">
-		<h1 class="display-3">Welcome To The Game!</h1>
-		<h2 class="display-4">
-				<input type="submit" class="btn btn-success btn-sm"> 
-					 <span class="glyphicon glyphicon-log-in"></span> Login</input>
-				<input type="submit" class="btn btn-success btn-sm">
-					<span class="glyphicon glyphicon-log-out"></span> Log-Out</input>
-		</h2>      
+		<h1 class="display-3">Welcome To The Game!</h1>    
   </div>
 
-
-</div>
+<form action="gamerps.php">
+  User Name:<br>
+  <input type="text" name="username">
+  <br>
+  Password:<br>
+  <input type="text" name="password">
+  <br><br>
+  <input type="submit" class="btn btn-success btn-sm"> 
+		<span class="glyphicon glyphicon-log-in"></span> Login</input>
+	<input type="submit" class="btn btn-success btn-sm">
+		<span class="glyphicon glyphicon-log-out"></span> Log-Out</input>
 </form>
+</div>
+
 </body>
 </html>
