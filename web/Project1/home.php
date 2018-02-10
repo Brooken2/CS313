@@ -12,7 +12,10 @@
 </head>
 <body>
 	<div class="jumbotron text-center" style="background-color: teal">
-			<h1 class="display-3">Brooke Nelson</h1>
+			<h1 class="display-3">Welcome To The Game!</h1>
+			<h2 class="display-4"><button type="button" class="btn btn-success btn-sm"> <span class="glyphicon glyphicon-log-in"></span>Login</button></h2> 
+			<h2 class="display-4"><button type="button" class="btn btn-success btn-sm">
+					<span class="glyphicon glyphicon-log-out"></span> Log-Out</button></h2> 
 	</div>
 
 </body>
