@@ -43,7 +43,7 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 		<?php 
 		foreach ($db->query("SELECT display_name FROM  participant WHERE display_name = 'Brooke Nelson' ") as $row)
 		{
-  			echo 'Display Name: ' . $row['display_name'];
+  			echo  $row['display_name'];
   			echo '<br/>';
 		}
 		?>
