@@ -1,6 +1,6 @@
 body{
 	background-color:lightblue;
-	margin: auto;
+	margin: 25px 50px 75px 100px;
 }
 
 .header{
@@ -18,7 +18,7 @@ body{
 }
 
 .column {
-    float: center;
+    float: left;
     width: 50%;
 }
 
