@@ -32,7 +32,7 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 		<?php
 			foreach ($db->query('SELECT name FROM  game') as $row)
 			{
-  				echo '<h2>' . $row['name'] . '<\h2>';
+  				echo '<h2>' . $row['name'] . '</h2>';
   				echo '<br/>';
 			}
 		?>
