@@ -15,11 +15,5 @@
 			<h1 class="display-3">Brooke Nelson</h1>
 	</div>
 
-<ul>
-  <li><a href="/Shopping/home.php">Assignment Week 03</a></li>
-  <li><a href="/Project1/home.php">Project 01</a></li>
-</ul> 
-
-
 </body>
 </html>
