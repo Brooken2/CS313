@@ -45,7 +45,6 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 		{
   			echo 'Display Name: ' . $row['display_name'];
   			echo '<br/>';
-  			die();
 		}
 		?>
 		<img src="http://markinternational.info/data/out/146/219894120-picture-of-fist.png" class="small" alt="Rock"> <br>
