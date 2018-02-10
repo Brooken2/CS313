@@ -48,7 +48,7 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 	<div class="column center">
 	
 	<?php 
-		foreach ($db->query('SELECT totalGames FROM gameParticipants') as $row)
+		foreach ($db->query('SELECT totalgames FROM gameParticipants') as $row)
 		{
   			echo '<h2> Total Games Played: ' . $row['totalGames'] . '</h2>';
 		}
