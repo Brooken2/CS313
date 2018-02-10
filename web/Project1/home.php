@@ -11,18 +11,20 @@
 	</script>
 </head>
 <body>
-<div class="container colorPage">
+<form action="gamerps.php">
+<div class="container">
   <div class="page-header">
 		<h1 class="display-3">Welcome To The Game!</h1>
 		<h2 class="display-4">
-				<button type="button" class="btn btn-success btn-sm"> 
+				<input type="button" class="btn btn-success btn-sm" name="login"> 
 					 <span class="glyphicon glyphicon-log-in"></span> Login</button>
-				<button type="button" class="btn btn-success btn-sm">
+				<input type="button" class="btn btn-success btn-sm" name="logout">
 					<span class="glyphicon glyphicon-log-out"></span> Log-Out</button>
 		</h2>      
   </div>
 
 
 </div>
+</form>
 </body>
 </html>
