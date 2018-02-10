@@ -11,7 +11,7 @@
 	</script>
 </head>
 <body>
-<div class="container">
+<div class="container colorPage">
   <div class="page-header">
 		<h1 class="display-3">Welcome To The Game!</h1>
 		<h2 class="display-4">
