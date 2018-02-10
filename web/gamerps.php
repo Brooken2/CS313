@@ -30,8 +30,11 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 <div class="header">
 		<h1>Game</h1>
 		<?php
-			$gameName = $db->query('SELECT name FROM game');
-			echo "<h2>$gameName<\h2>";
+			foreach ($db->query('SELECT name FROM  game') as $row)
+			{
+  				echo '<h2>' . $row['name'] . '<\h2>';
+  				echo '<br/>';
+			}
 		?>
 </div>
 
