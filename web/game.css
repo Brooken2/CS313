@@ -21,6 +21,9 @@ body{
     float: left;
     width: 50%;
 }
+.center{
+	text-align:center;
+}
 .right{
 	text-align: right;
 }
