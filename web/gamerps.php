@@ -26,7 +26,15 @@ $dbName = ltrim($dbopts["path"],'/');
 
 $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 ?>
-<
+
+<div class="header">
+		<h1>Game</h1>
+		<?php
+			$gameName = $db->query('SELECT name FROM game');
+			echo "<h2>$gameName<\h2>";
+		?>
+</div>
+
 <div class="row">
 	<div class="column">
 		<img src="http://markinternational.info/data/out/146/219894120-picture-of-fist.png" class="small" alt="Rock"> <br>
