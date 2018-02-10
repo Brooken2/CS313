@@ -61,10 +61,9 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 	}
 	?>
 	</div>
-	
-		<form action="gamerps.php">
+</div>
+	<form action="gamerps.php">
 			<button type="submit" class="btn btn-success btn-sm">Play Again</button>
 		</form>
-</div>
 </body>
 </html>
