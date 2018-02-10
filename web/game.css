@@ -3,3 +3,8 @@
 	background-color: White;
 	text-align: left;
 }
+
+.small{
+	height: 200px;
+	width: 100px;
+}
