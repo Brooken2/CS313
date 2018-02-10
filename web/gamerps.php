@@ -35,10 +35,12 @@ foreach ($db->query('SELECT display_name FROM  participant') as $row)
 }
 ?>
 
-
-<img src="http://markinternational.info/data/out/146/219894120-picture-of-fist.png" class="img-circle small" alt="Rock">
-<img src="https://jardimcoloridodatialiu.files.wordpress.com/2014/04/805a9-moldemc383o28129.jpg" class="img-circle small" alt="Paper">
-<img src="http://www.clker.com/cliparts/7/d/N/6/X/o/scissor-hand.svg" class="img-circle" alt="Scissors">
-
+<div class="row">
+	<div class="column">
+		<img src="http://markinternational.info/data/out/146/219894120-picture-of-fist.png" class="small" alt="Rock"> <br>
+		<img src="https://jardimcoloridodatialiu.files.wordpress.com/2014/04/805a9-moldemc383o28129.jpg" class="small" alt="Paper"><br>
+		<img src="http://www.clker.com/cliparts/7/d/N/6/X/o/scissor-hand.svg" class="small" alt="Scissors"><br>
+	</div>	
+</div>
 </body>
 </html>
