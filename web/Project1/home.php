@@ -27,10 +27,8 @@
     <label for="pwd">Password:</label>
     <input type="password" class="form-control" id="pwd">
   </div>
-  <button type="submit" class="btn btn-default">
+  <button type="submit" class="btn btn-success">
   		<span class="glyphicon glyphicon-log-in"></span> Login</button>
- <button type="subimit" class="btn btn-success btn-sm">
- 		<span class="glyphicon glyphicon-log-out"></span> Log-Out</button>
 </form> 
 
 </div>
