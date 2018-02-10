@@ -1,3 +1,7 @@
+body{
+	background-color:lightblue;
+	margin: auto;
+}
 .colorText {
 	color: Black;
 	background-color: White;
@@ -20,3 +24,4 @@
     display: table;
     clear: both;
 } 
+
