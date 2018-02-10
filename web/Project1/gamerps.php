@@ -30,8 +30,7 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 
 <div class="container">
   <div class="page-header">
-	<h1 class="display-3">Welcome To The Game!</h1>    
-	<h2>Game</h2>
+	<h1 class="display-3">Welcome To The Game!</h1> 
 		<?php
 			foreach ($db->query('SELECT name FROM  game') as $row)
 			{
@@ -39,7 +38,7 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
   				echo '<br/>';
 			}
 		?>
-		<form action="gamerps.php">
+		<form action="home.php">
   			 <button type="submit" class="btn btn-success btn-sm">
  			 <span class="glyphicon glyphicon-log-out"></span> Log-Out</button>
 		</form> 

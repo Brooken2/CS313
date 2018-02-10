@@ -1,7 +1,9 @@
 .header{
 	text-align: center;
 }
-
+body{
+	background-color: pink;
+}
 .colorText {
 	color: Black;
 	background-color: White;
