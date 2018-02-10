@@ -1,6 +1,7 @@
 body{
 	background-color:lightblue;
-	margin: 25px 50px 75px 100px;
+	/*margin: 25px 50px 75px 100px;*/
+	margin-left: 15%;
 }
 
 .header{
