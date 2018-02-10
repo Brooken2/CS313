@@ -41,7 +41,11 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 		<form action="home.php">
   			 <button type="submit" class="btn btn-success btn-sm">
  			 <span class="glyphicon glyphicon-log-out"></span> Log-Out</button>
+			 <button type="submit" class="btn btn-success btn-sm">Play Again</button>
 		</form> 
+		<form action="gamerps.php">
+		<button type="submit" class="btn btn-success btn-sm">Play Again</button>
+		</form>
   </div>
 
 <div class="row">
