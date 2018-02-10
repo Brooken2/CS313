@@ -7,7 +7,7 @@
 	</script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 	</script>
-	<link rel="stylesheet" type="text/css" href="shopping.css">
+	<link rel="stylesheet" type="text/css" href="game.css">
 </head>
 
 <body>
@@ -34,5 +34,11 @@ foreach ($db->query('SELECT display_name FROM  participant') as $row)
   echo '<br/>';
 }
 ?>
+
+
+<img src="http://markinternational.info/data/out/146/219894120-picture-of-fist.png" class="img-circle" alt="Rock">
+<img src="https://jardimcoloridodatialiu.files.wordpress.com/2014/04/805a9-moldemc383o28129.jpg" class="img-circle" alt="Paper">
+<img src="http://www.clker.com/cliparts/7/d/N/6/X/o/scissor-hand.svg" class="img-circle" alt="Scissors">
+
 </body>
 </html>
