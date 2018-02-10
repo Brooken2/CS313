@@ -21,6 +21,9 @@ body{
     float: left;
     width: 50%;
 }
+.right{
+	text-align: right;
+}
 
 /* Clear floats after the columns */
 .row:after {
