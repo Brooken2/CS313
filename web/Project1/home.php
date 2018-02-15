@@ -31,6 +31,23 @@ function chckusername($username, $password){
         echo "<div id='loginmsg'>Wrong Username</div>";
     }
 }
+
+function chcklogin($username, $password){
+
+    $login = "SELECT * FROM participant WHERE username='$username'  and password='$password'";
+    $login_q = mysql_query($login) or die('Error on checking Username and Password');
+
+    if (mysql_num_rows($login_q) == 1){
+        echo "<div id='loginmsg'> Logged in as $username </div>"; 
+        $_SESSION['username'] = $username;
+        header('Location: gamerrps.php');
+    }
+    else {
+        echo "<div id='loginmsg'>Wrong Password </div>"; 
+        //header('Location: login-problem.php');
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +69,7 @@ function chckusername($username, $password){
   </div>
 
 
-<form action="gamerps.php" method="post">
+<form action="" method="post">
  	 <div class="form-group">
     		<label for="login">User Name:</label>
     		<input type="login" class="form-control" id="login">
