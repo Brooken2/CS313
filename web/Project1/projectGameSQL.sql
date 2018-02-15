@@ -26,3 +26,5 @@ CREATE TABLE public.gameParticipants
 	totalGames INT NOT NULL,
 	wins INT NOT NULL
 );
+
+INSERT INTO participant(username, password, display_name, email) VALUES ('Jacob', 'jacob', 'Jacob2', 'jacob2@gmail.com');

@@ -1,5 +1,24 @@
 <?php
-$dbUrl = getenv('DATABASE_URL');
+
+require("dbConnect.php");
+
+$db = get_db();
+$query = "SELECT id, username, password, display_name, email FROM participant";
+
+$statement = $db->prepare($query);
+
+$statement->execute();
+
+$rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($rows as $row) {
+	$id = $row['id'];
+	$name = $row['username'];
+	$number = $row['password'];
+	echo "<li>$number - $name</li>\n";
+	}
+
+/*$dbUrl = getenv('DATABASE_URL');
 
 $dbopts = parse_url($dbUrl);
 
@@ -46,7 +65,7 @@ function chcklogin($username, $password){
         echo "<div id='loginmsg'>Wrong Password </div>"; 
         //header('Location: login-problem.php');
     }
-}
+}*/
 
 ?>
 <!DOCTYPE html>
