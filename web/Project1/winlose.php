@@ -97,10 +97,10 @@ else if($selection == 3){
 
 foreach ($db->query("SELECT * FROM gameParticipants WHERE participantId=$user") as $row)
 {
-  		echo '<h2> Total Games Played: ' . $row['totalgames'] . '</h2>';
 		echo '<h2> Total Games Won: ' .  $row['wins'] . '</h2>';
 		echo '<h2> Total Games Lost: ' . $row['losses'] . '</h2>';
 		echo '<h2> Total Games Tied: ' . $row['tiedgames'] . '</h2>';
+		echo '<h2> Total Games Played: ' . $row['totalgames'] . '</h2>';
 }
 	
 echo"<a href='gamerps.php?userid=" . $userid . "'>

@@ -34,3 +34,4 @@ INSERT INTO gameParticipants(participantId, gameId, totalGames, wins) VALUES(1, 
 SELECT * FROM gameparticipants;
 ALTER TABLE gameparticipants ADD COLUMN tiedGames INT NOT NULL;
 UPDATE gameparticipants SET totalGames = totalGames + 1,  wins = wins +1 WHERE participantId = 2;
+ ALTER TABLE gameparticipants ALTER losses SET DEFAULT 0;
