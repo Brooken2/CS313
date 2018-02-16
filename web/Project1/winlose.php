@@ -14,29 +14,35 @@
 
 
 <?php
+require("dbConnect.php");
+$db = get_db();
 
-$dbUrl = getenv('DATABASE_URL');
+$userid = $_GET['userid'];
 
-$dbopts = parse_url($dbUrl);
+$selection = $_GET['selection'];
+$computerSelection = rand(1, 3);
+$user = $_GET['userid'];
 
-$dbHost = $dbopts["host"];
-$dbPort = $dbopts["port"];
-$dbUser = $dbopts["user"];
-$dbPassword = $dbopts["pass"];
-$dbName = ltrim($dbopts["path"],'/');
+$win = "UPDATE gameparticipants SET totalGames = totalGames + 1,  wins = wins + 1 WHERE participantId = $user";
+$tied = "UPDATE gameparticipants SET totalGames = totalGames + 1,  tiedgames = tiedgames + 1 WHERE participantId = $user";
+$lost =  "UPDATE gameparticipants SET totalGames = totalGames + 1,  losses = losses + 1 WHERE participantId = $user";
 
-$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+$winstat = $db->prepare($win);
+$tiedstat = $db->prepare($tied);
+$loststat = $db->prepare($lost);
+
 ?>
 
 <div class="container">
   <div class="page-header">
 	<h1 class="display-3">Welcome To The Game!</h1> 
 		<?php
-			foreach ($db->query('SELECT name FROM  game') as $row)
-			{
-  				echo '<h2>' . $row['name'] . '</h2>';
-  				echo '<br/>';
-			}
+		foreach ($db->query('SELECT name FROM game') as $row)
+		{
+  			echo '<h2>' . $row['name'] . '</h2>';
+  			echo '<br/>';
+		}
 		?>
 		<form action="home.php">
   			 <button type="submit" class="btn btn-success btn-sm">
@@ -44,26 +50,62 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 		</form> 
   </div>
 
-<div class="row">
-	<div class="column center">
-	
-	<?php 
-	foreach ($db->query('SELECT totalgames FROM gameParticipants') as $row)
-	{
+<?php 
+if($selection == 1){
+	if($computerSelection == 1){
+		$tiedstat->execute();
+		echo '<h2> YOU TIED</h2>';
+	}
+	else if($computerSelection == 2){
+		$loststat->execute();
+		echo '<h2>You Lost</h2>';
+	}
+	else if($computerSelection == 3){
+		$winstat->execute();
+		echo '<h2> YOU WIN</h2>';
+	}
+}
+else if($selection == 2){
+	if($computerSelection == 1){
+		$winstat->execute();
+		echo '<h2 class="red"> YOU WIN</h2>';
+	}
+	else if($computerSelection == 2){
+	   $tiedstat->execute();
+	   	echo '<h2> YOU TIED</h2>';
+	}
+	else if($computerSelection == 3){
+		$loststat->execute();
+			echo '<h2>You Lost</h2>';
+	}
+}
+else if($selection == 3){
+	if($computerSelection == 1){
+		$loststat->execute();
+		echo '<h2>You Lost</h2>';
+	}
+	else if($computerSelection == 2){
+		$winstat->execute();
+		echo '<h2 class="red"> YOU WIN</h2>';
+	}
+	else if($computerSelection == 3){
+		$tiedstat->execute();
+		echo '<h2> YOU TIED</h2>';
+	}
+}
+
+
+foreach ($db->query("SELECT * FROM gameParticipants WHERE participantId=$user") as $row)
+{
   		echo '<h2> Total Games Played: ' . $row['totalgames'] . '</h2>';
-	}
-	?>
+		echo '<h2> Total Games Won: ' .  $row['wins'] . '</h2>';
+		echo '<h2> Total Games Lost: ' . $row['losses'] . '</h2>';
+		echo '<h2> Total Games Tied: ' . $row['tiedgames'] . '</h2>';
+}
 	
-	<?php	
-	foreach ($db->query('SELECT wins FROM gameParticipants') as $row)
-	{
-		echo '<h2> Total Wins: ' .  $row['wins'] . '</h2>';
-	}
-	?>
-	</div>
-</div>
-	<form action="gamerps.php">
-			<button type="submit" class="btn btn-success btn-sm">Play Again</button>
-		</form>
+echo"<a href='gamerps.php?userid=" . $userid . "'>
+			<button class='btn btn-success btn-sm'>Play Again</button>
+			</a>";
+?>
 </body>
 </html>

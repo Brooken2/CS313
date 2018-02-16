@@ -1,73 +1,7 @@
 <?php
-
-require("dbConnect.php");
-
-$db = get_db();
-$query = "SELECT id, username, password, display_name, email FROM participant";
-
-$statement = $db->prepare($query);
-
-$statement->execute();
-
-$rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($rows as $row) {
-	$id = $row['id'];
-	$name = $row['username'];
-	$number = $row['password'];
-	echo "<li>$number - $name</li>\n";
-	}
-
-/*$dbUrl = getenv('DATABASE_URL');
-
-$dbopts = parse_url($dbUrl);
-
-$dbHost = $dbopts["host"];
-$dbPort = $dbopts["port"];
-$dbUser = $dbopts["user"];
-$dbPassword = $dbopts["pass"];
-$dbName = ltrim($dbopts["path"],'/');
-
-$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-
-session_start();
-
-if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    chckusername($username, $password);
-}
-
-function chckusername($username, $password){
-
-    $check = "SELECT * FROM participant WHERE username='$username'";
-    $check_q = mysql_query($check) or die("<div class='loginmsg'>Error on checking Username<div>");
-
-    if (mysql_num_rows($check_q) == 1) {
-        chcklogin($username, $password);
-    }
-    else{
-        echo "<div id='loginmsg'>Wrong Username</div>";
-    }
-}
-
-function chcklogin($username, $password){
-
-    $login = "SELECT * FROM participant WHERE username='$username'  and password='$password'";
-    $login_q = mysql_query($login) or die('Error on checking Username and Password');
-
-    if (mysql_num_rows($login_q) == 1){
-        echo "<div id='loginmsg'> Logged in as $username </div>"; 
-        $_SESSION['username'] = $username;
-        header('Location: gamerrps.php');
-    }
-    else {
-        echo "<div id='loginmsg'>Wrong Password </div>"; 
-        //header('Location: login-problem.php');
-    }
-}*/
-
+$error = $_GET['error'];
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,15 +21,22 @@ function chcklogin($username, $password){
 		<h1 class="display-3">Welcome To The Game!</h1>    
   </div>
 
-
-<form action="" method="post">
+<?php
+if($error == 1){
+	echo '<h2 class="red">Wrong Password: Try again</h2>';
+}
+else if($error == 2){
+	echo '<h2 class="red">Wrong Username: Try again</h2>';
+}
+?>
+<form action="validate.php" method="post">
  	 <div class="form-group">
     		<label for="login">User Name:</label>
-    		<input type="login" class="form-control" id="login">
+    		<input type="login" class="form-control" id="username" name="username">
   	</div>
   	<div class="form-group">
     		<label for="pwd">Password:</label>
-    		<input type="password" class="form-control" id="pwd">
+    		<input type="password" class="form-control" id="password" name="password">
   	</div>
   	<button type="submit" class="btn btn-success">
   			<span class="glyphicon glyphicon-log-in"></span> Login</button>

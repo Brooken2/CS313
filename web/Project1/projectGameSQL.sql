@@ -24,7 +24,13 @@ CREATE TABLE public.gameParticipants
 	participantId INT NOT NULL REFERENCES public.participant(Id),
 	gameId INT NOT NULL REFERENCES public.game(Id),
 	totalGames INT NOT NULL,
-	wins INT NOT NULL
+	wins INT NOT NULL,
+	tiedgames INT,
+	losses INT
 );
 
 INSERT INTO participant(username, password, display_name, email) VALUES ('Jacob', 'jacob', 'Jacob2', 'jacob2@gmail.com');
+INSERT INTO gameParticipants(participantId, gameId, totalGames, wins) VALUES(1, 1, 10, 10);
+SELECT * FROM gameparticipants;
+ALTER TABLE gameparticipants ADD COLUMN tiedGames INT NOT NULL;
+UPDATE gameparticipants SET totalGames = totalGames + 1,  wins = wins +1 WHERE participantId = 2;

@@ -9,22 +9,11 @@
 	</script>
 	<link rel="stylesheet" type="text/css" href="game.css">
 </head>
-
 <body>
-
-
 <?php
-$dbUrl = getenv('DATABASE_URL');
-
-$dbopts = parse_url($dbUrl);
-
-$dbHost = $dbopts["host"];
-$dbPort = $dbopts["port"];
-$dbUser = $dbopts["user"];
-$dbPassword = $dbopts["pass"];
-$dbName = ltrim($dbopts["path"],'/');
-
-$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+require("dbConnect.php");
+$db = get_db();
+$userid = $_GET['userid'];
 ?>
 
 <div class="container">
@@ -47,16 +36,16 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 <div class="row">
 	<div class="column center">
 		<?php 
-		foreach ($db->query("SELECT display_name FROM  participant WHERE display_name = 'Brooke Nelson' ") as $row)
-		{
-  			echo  $row['display_name'];
-  			echo '<br/>';
-		}
-		?>
-		<a href="winlose.php"><img src="http://markinternational.info/data/out/146/219894120-picture-of-fist.png" class="small" alt="Rock"></a> <br>
-		<a href="winlose.php"><img src="https://jardimcoloridodatialiu.files.wordpress.com/2014/04/805a9-moldemc383o28129.jpg" class="small" alt="Paper"></a><br>
-		<a href="winlose.php"><img src="http://www.clker.com/cliparts/7/d/N/6/X/o/scissor-hand.svg" class="small" alt="Scissors"></a><br>
-	</div>	
+			foreach ($db->query("SELECT display_name FROM  participant WHERE id=$userid ") as $row)
+			{
+  				echo  $row['display_name'];
+  				echo '<br/>';
+			}
+			echo "<a href='winlose.php?selection=1&userid=$userid'><img src='http://markinternational.info/data/out/146/219894120-picture-of-fist.png' class='small' alt='Rock'></a> <br>";
+			echo "<a href='winlose.php?selection=2&userid=$userid'><img src='https://jardimcoloridodatialiu.files.wordpress.com/2014/04/805a9-moldemc383o28129.jpg' class='small' alt='Paper'></a><br>";
+			echo "<a href='winlose.php?selection=3&userid=$userid'><img src='http://www.clker.com/cliparts/7/d/N/6/X/o/scissor-hand.svg' class='small' alt='Scissors'></a><br>";
+	   		echo '</div>';	
+	   ?>
 	<div class ="column center">
 	<p>COMPUTER</p>
 		<img src="http://markinternational.info/data/out/146/219894120-picture-of-fist.png" class="small" alt="Rock"> <br>

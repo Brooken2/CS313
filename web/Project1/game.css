@@ -3,6 +3,10 @@ label {
         width:100px;
         font-size:14px;
 }
+.red{
+	text-align: center;
+	color: red;
+}
 .box {
       border:#666666 solid 1px;
 }
@@ -10,8 +14,12 @@ label {
 	text-align: center;
 }
 
+.form-control:focus{
+	background-color: lightblue;
+}
+
 body{
-	background-color: pink;
+	background-color: pink !important;
 	font-family:Arial, Helvetica, sans-serif;
     font-size:14px;
 }
