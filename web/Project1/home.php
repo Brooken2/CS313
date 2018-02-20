@@ -23,10 +23,7 @@ $error = $_GET['error'];
 
 <?php
 if($error == 1){
-	echo '<h2 class="red">Wrong Password: Try again</h2>';
-}
-else if($error == 2){
-	echo '<h2 class="red">Wrong Username: Try again</h2>';
+	echo '<h2 class="red">Wrong Username or Password: Try again</h2>';
 }
 ?>
 <form action="validate.php" method="post">

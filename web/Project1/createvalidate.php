@@ -6,16 +6,17 @@ require("dbConnect.php");
 
 $db = get_db();
 $user_name = htmlspecialchars($_POST['username']);
-$password = htmlspecialchars($_POST['password']);
+$password = $_POST['password'];
+$passwordhash =  password_hash($password, PASSWORD_DEFAULT);
 $dname = $_POST['dname'];
 $email = $_POST['email'];
 
 if(isset($user_name))
 {
-	if(isset($password)){
+	if(isset($passwordhash)){
 		if(isset($dname)){
 			if(isset($email)){
-				$random = "INSERT INTO participant(username, password, display_name, email) VALUES ('$user_name', '$password', '$dname', '$email')";
+				$random = "INSERT INTO participant(username, password, display_name, email) VALUES ('$user_name', '$passwordhash', '$dname', '$email')";
 				$sta = $db->prepare($random);
 				$sta->execute();
 			}else{
@@ -48,7 +49,7 @@ if(isset($rows['username']))
 	
 
 if($rows['username'] == $user_name){
-		if($rows['password'] == $password){
+		if(password_verify($password, $rows['password'])){
 			$q = "INSERT INTO gameParticipants(participantId, gameId, totalGames, wins, tiedgames, losses) VALUES($id, 1, 0, 0, 0, 0)";
 			$ment = $db->prepare($q);
 			$ment->execute();
@@ -62,12 +63,12 @@ if($rows['username'] == $user_name){
 		}
 }
 else{
-	header('Location: home.php?error=2');
+	header('Location: home.php?error=1');
 	die();
 	}
 }
 else
-header('Location: home.php?error=2');
+header('Location: home.php?error=1');
 
 ?>
 
