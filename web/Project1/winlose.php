@@ -62,7 +62,7 @@ if($selection == 1){
 	}
 	else if($computerSelection == 3){
 		$winstat->execute();
-		echo '<h2> YOU WIN</h2>';
+		echo '<h2 class="red"> YOU WIN</h2>';
 	}
 }
 else if($selection == 2){
