@@ -95,7 +95,7 @@ else if($selection == 3){
 }
 
 
-foreach ($db->query("SELECT * FROM gameParticipants WHERE participantId=$user") as $row)
+foreach ($db->query("SELECT totalGames, wins, losses, tiedgames FROM gameParticipants WHERE participantId=$user") as $row)
 {
 		echo '<h2> Total Games Won: ' .  $row['wins'] . '</h2>';
 		echo '<h2> Total Games Lost: ' . $row['losses'] . '</h2>';
