@@ -3,7 +3,7 @@
 <?php
 
 require("dbConnect.php");
-
+session_start();
 $db = get_db();
 $user_name = htmlspecialchars($_POST['username']);
 $password = $_POST['password'];
@@ -53,8 +53,8 @@ if($rows['username'] == $user_name){
 			$q = "INSERT INTO gameParticipants(participantId, gameId, totalGames, wins, tiedgames, losses) VALUES($id, 1, 0, 0, 0, 0)";
 			$ment = $db->prepare($q);
 			$ment->execute();
-			
-			header("Location: gamerps.php?userid=" . $rows['id'] );
+			$_SESSION['userid'] = $id;
+			header("Location: gamerps.php");
 			die();
 		}
 		else{

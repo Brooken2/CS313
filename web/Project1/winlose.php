@@ -15,13 +15,12 @@
 
 <?php
 require("dbConnect.php");
+session_start();
 $db = get_db();
-
-$userid = $_GET['userid'];
 
 $selection = $_GET['selection'];
 $computerSelection = rand(1, 3);
-$user = $_GET['userid'];
+$user = $_SESSION['userid'];
 
 $win = "UPDATE gameparticipants SET totalGames = totalGames + 1,  wins = wins + 1 WHERE participantId = $user";
 $tied = "UPDATE gameparticipants SET totalGames = totalGames + 1,  tiedgames = tiedgames + 1 WHERE participantId = $user";
@@ -103,7 +102,7 @@ foreach ($db->query("SELECT totalGames, wins, losses, tiedgames FROM gamePartici
 		echo '<h2> Total Games Played: ' . $row['totalgames'] . '</h2>';
 }
 	
-echo"<a href='gamerps.php?userid=" . $userid . "'>
+echo"<a href='gamerps.php'>
 			<button class='btn btn-success btn-sm'>Play Again</button>
 			</a>";
 ?>

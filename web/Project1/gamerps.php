@@ -12,8 +12,11 @@
 <body>
 <?php
 require("dbConnect.php");
+session_start();
+
 $db = get_db();
-$userid = $_GET['userid'];
+
+$userid = $_SESSION['userid'];
 ?>
 
 <div class="container">
@@ -36,14 +39,14 @@ $userid = $_GET['userid'];
 <div class="row">
 	<div class="column center">
 		<?php 
-			foreach ($db->query("SELECT display_name FROM  participant WHERE id=$userid ") as $row)
+			foreach ($db->query("SELECT display_name FROM  participant WHERE id='$userid' ") as $row)
 			{
   				echo  $row['display_name'];
   				echo '<br/>';
 			}
-			echo "<a href='winlose.php?selection=1&userid=$userid'><img src='http://markinternational.info/data/out/146/219894120-picture-of-fist.png' class='small' alt='Rock'></a> <br>";
-			echo "<a href='winlose.php?selection=2&userid=$userid'><img src='https://jardimcoloridodatialiu.files.wordpress.com/2014/04/805a9-moldemc383o28129.jpg' class='small' alt='Paper'></a><br>";
-			echo "<a href='winlose.php?selection=3&userid=$userid'><img src='http://www.clker.com/cliparts/7/d/N/6/X/o/scissor-hand.svg' class='small' alt='Scissors'></a><br>";
+			echo "<a href='winlose.php?selection=1'><img src='http://markinternational.info/data/out/146/219894120-picture-of-fist.png' class='small' alt='Rock'></a> <br>";
+			echo "<a href='winlose.php?selection=2'><img src='https://jardimcoloridodatialiu.files.wordpress.com/2014/04/805a9-moldemc383o28129.jpg' class='small' alt='Paper'></a><br>";
+			echo "<a href='winlose.php?selection=3'><img src='http://www.clker.com/cliparts/7/d/N/6/X/o/scissor-hand.svg' class='small' alt='Scissors'></a><br>";
 	   		echo '</div>';	
 	   ?>
 	<div class ="column center">

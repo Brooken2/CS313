@@ -3,6 +3,7 @@
 <?php
 
 require("dbConnect.php");
+session_start();
 
 $db = get_db();
 $user_name = htmlspecialchars($_POST['username']);
@@ -22,7 +23,8 @@ if(isset($rows['username']))
 
 if($rows['username'] == $user_name){
 		if(password_verify($password, $rows['password'])){
-			header("Location: gamerps.php?userid=" . $rows['id'] );
+		$_SESSION['userid'] = $rows['id'];
+			header("Location: gamerps.php" );
 			die();
 		}
 		else{
