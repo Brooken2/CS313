@@ -53,11 +53,11 @@ $loststat = $db->prepare($lost);
 if($selection == 1){
 	if($computerSelection == 1){
 		$tiedstat->execute();
-		echo '<h2> YOU TIED</h2>';
+		echo '<h2 class="red"> YOU TIED</h2>';
 	}
 	else if($computerSelection == 2){
 		$loststat->execute();
-		echo '<h2>You Lost</h2>';
+		echo '<h2 class="red">You Lost</h2>';
 	}
 	else if($computerSelection == 3){
 		$winstat->execute();
@@ -71,17 +71,17 @@ else if($selection == 2){
 	}
 	else if($computerSelection == 2){
 	   $tiedstat->execute();
-	   	echo '<h2> YOU TIED</h2>';
+	   	echo '<h2 class="red"> YOU TIED</h2>';
 	}
 	else if($computerSelection == 3){
 		$loststat->execute();
-			echo '<h2>You Lost</h2>';
+			echo '<h2 class="red">You Lost</h2>';
 	}
 }
 else if($selection == 3){
 	if($computerSelection == 1){
 		$loststat->execute();
-		echo '<h2>You Lost</h2>';
+		echo '<h2 class="red">You Lost</h2>';
 	}
 	else if($computerSelection == 2){
 		$winstat->execute();
@@ -89,7 +89,7 @@ else if($selection == 3){
 	}
 	else if($computerSelection == 3){
 		$tiedstat->execute();
-		echo '<h2> YOU TIED</h2>';
+		echo '<h2 class="red"> YOU TIED</h2>';
 	}
 }
 
