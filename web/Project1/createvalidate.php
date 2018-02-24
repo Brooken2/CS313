@@ -5,6 +5,7 @@
 require("dbConnect.php");
 session_start();
 $db = get_db();
+
 $user_name = htmlspecialchars($_POST['username']);
 $password = $_POST['password'];
 $passwordhash =  password_hash($password, PASSWORD_DEFAULT);
@@ -44,11 +45,8 @@ $statement->execute();
 $rows = $statement->fetch();
 $id = $rows['id'];
 
-if(isset($rows['username']))
-{
-	
-
-if($rows['username'] == $user_name){
+if(isset($rows['username'])){
+	if($rows['username'] == $user_name){
 		if(password_verify($password, $rows['password'])){
 			$q = "INSERT INTO gameParticipants(participantId, gameId, totalGames, wins, tiedgames, losses) VALUES($id, 1, 0, 0, 0, 0)";
 			$ment = $db->prepare($q);
@@ -56,21 +54,19 @@ if($rows['username'] == $user_name){
 			$_SESSION['userid'] = $id;
 			header("Location: gamerps.php");
 			die();
-		}
-		else{
+		} else{
 			header('Location: home.php?error=1');
 			die();
 		}
-}
+	}
 else{
 	header('Location: home.php?error=1');
 	die();
 	}
 }
 else
-header('Location: home.php?error=1');
+	header('Location: home.php?error=1');
 
 ?>
-
 </body>
 </html>
